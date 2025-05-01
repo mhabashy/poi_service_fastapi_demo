@@ -120,7 +120,7 @@ def reject_poi(
     
     return poi
 
-@router.post("/api-keys", response_model=schemas.APIKey)
+@router.post("/api-keys", response_model=schemas.APIKey) # different user with different key
 def create_api_key(
     api_key_data: schemas.APIKeyCreate,
     db: Session = Depends(get_db),
@@ -145,7 +145,7 @@ def create_api_key(
     
     return db_api_key
 
-@router.post("/api-token", response_model=object)
+@router.post("/api-token", response_model=object) # generate token with api key
 def create_api_token(
     api_key: models.APIKey = Depends(verify_api_key)
 ):

@@ -26,8 +26,7 @@ async def create_poi(
     
     db.add(db_poi)
     db.flush()
-    print("here")
-    print(images)
+    
     if images:
         try:
             isFirst = True
